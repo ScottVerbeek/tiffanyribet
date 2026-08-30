@@ -856,6 +856,21 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   .work__grid    { grid-template-columns: 1fr; }
   .testimonials__grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
+
+  /* Work cards: remove sticky scroll effect, stack as normal blocks */
+  .scd-01__card {
+    position: static;
+    flex-direction: column;
+    height: auto;
+    animation: none;
+  }
+  .scd-01__card-left,
+  .scd-01__card-right {
+    width: 100%;
+  }
+  .scd-01__card-right {
+    height: 260px;
+  }
 }
 
 /* ═══════════════════════════════════════════════
