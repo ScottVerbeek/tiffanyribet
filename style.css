@@ -567,10 +567,10 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   overflow: hidden;
   display: flex;
   height: 720px;
-  background: var(--surface);
+  background: #fff;
   border: 1px solid var(--border);
   box-shadow: 0 32px 64px -24px rgba(0,0,0,.14);
-  animation: scd-01-shrink linear both;
+  animation: scd-01-shrink linear none;
   animation-timeline: view();
   animation-range: exit;
 }
@@ -589,6 +589,10 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   width: 50%;
   flex-shrink: 0;
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scd-01__card-right img {
@@ -880,4 +884,26 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   .service-item__body p { padding-left: 1.5rem; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+
+
+
+/* ═══════════════════════════════════════════════
+   Instagram embed fix
+═══════════════════════════════════════════════ */
+.instagram-container {
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.instagram-container .instagram-media {
+  width: 100% !important;
+  max-width: 600px !important;
+  min-width: 0 !important;
+  height: 600px !important;
+  max-height: 600px !important;
+  margin: 0 !important;
 }
