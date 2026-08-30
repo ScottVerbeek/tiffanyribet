@@ -608,13 +608,11 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
-  color: var(--text-muted);
 }
 
 .scd-01__tags {
   font-size: var(--text-xs);
   letter-spacing: 0.04em;
-  color: var(--text-muted);
 }
 
 .scd-01__title {
@@ -622,14 +620,24 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   letter-spacing: 0.02em;
   line-height: 1;
-  color: var(--text);
 }
 
 .scd-01__text {
   font-size: clamp(0.875rem, 1.4vw, 1rem);
   line-height: 1.65;
-  color: var(--text-muted);
   max-width: 38ch;
+}
+
+.scd-01__card-left ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scd-01__card-left li {
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  line-height: 1.6;
 }
 
 .scd-01__end {
@@ -637,7 +645,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
   padding-top: 8vh;
 }
 
@@ -653,10 +660,13 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 }
 
 /* ─── card accent colours ─── */
-.scd-01__card:nth-child(1) { background: #FFF9F0; }
-.scd-01__card:nth-child(2) { background: #F4F0FF; }
-.scd-01__card:nth-child(3) { background: #F0FFF4; }
-.scd-01__card:nth-child(4) { background: #FFF0F8; }
+.scd-01__card:nth-child(1) { background: #FFD37A; }
+.scd-01__card:nth-child(2) { background: #DCA8FF; }
+.scd-01__card:nth-child(3) { background: #B7FF93; }
+.scd-01__card:nth-child(4) { background: #F8A7FF; }
+.scd-01__card:nth-child(5) { background: #F8A7FF; }
+.scd-01__card:nth-child(6) { background: #FF8F64; }
+.scd-01__card:nth-child(7) { background: #FF8F64; }
 
 /* ═══════════════════════════════════════════════
    SERVICES
