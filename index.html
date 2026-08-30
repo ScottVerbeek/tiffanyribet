@@ -24,7 +24,7 @@
     <div class="preloader__bar"><div class="preloader__bar-fill"></div></div>
   </div>
 
-  <!-- ─── NAVIGATION ─── -->
+  <!-- ─── NAVIGATION (fixed, outside hero) ─── -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo">// TIFFANY</a>
@@ -36,7 +36,7 @@
         <a href="#contact"  class="nav__link">Contact</a>
       </div>
 
-      <button class="nav__hamburger" id="menuBtn" aria-label="Toggle menu">
+      <button class="nav__hamburger" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -54,15 +54,17 @@
   </nav>
 
   <!-- ─── HERO ─── -->
-  <section class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
+  <section class="hero" id="hero">
+    <img src="profile.png" alt="Tiffany Ribet" class="hero__img" />
 
-    <div class="hero__content">
-      <div class="hero__eyebrow">Creative Director &amp; Visual Storyteller</div>
+    <!-- Text overlay -->
+    <div class="hero__overlay">
+      <!-- Title anchored to top-left — Ariyana style -->
       <h1 class="hero__title">
-        <span class="hero__title-row">TIFFANY</span>
-        <span class="hero__title-row hero__title-row--stroke">RIBET</span>
+        <span class="hero__title-row">TIFFANY RIBET</span>
       </h1>
+
+      <!-- Bottom row: eyebrow + stats + scroll cue -->
       <div class="hero__meta">
         <div class="hero__stat">
           <span class="hero__stat-num">10+</span>
@@ -73,20 +75,11 @@
           <span class="hero__stat-num">80+</span>
           <span class="hero__stat-label">Projects delivered</span>
         </div>
+        <div class="hero__scroll-cue">
+          <span class="hero__scroll-text">Scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
       </div>
-    </div>
-
-    <div class="hero__image-wrap">
-      <img
-        src="profile.png"
-        alt="Tiffany Ribet"
-        class="hero__image"
-      />
-    </div>
-
-    <div class="hero__scroll-cue">
-      <span class="hero__scroll-text">Scroll</span>
-      <div class="hero__scroll-line"></div>
     </div>
   </section>
 
@@ -287,7 +280,6 @@
         <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
         <span class="cta__ticker-item">Let's Work Together</span>
         <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
-        <!-- duplicated for seamless loop -->
         <span class="cta__ticker-item">Let's Work Together</span>
         <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
         <span class="cta__ticker-item">Let's Work Together</span>
@@ -350,30 +342,28 @@
         opacity: 0, duration: 0.5, delay: 1.0, ease: 'power2.inOut',
         onComplete() { document.getElementById('preloader').style.display = 'none'; }
       });
-
       // Hero entrance
-      gsap.from('.hero__eyebrow', { opacity: 0, y: 20, duration: 0.8, delay: 1.2, ease: 'power3.out' });
-      gsap.from('.hero__title-row', {
-        y: '110%', duration: 1.1, stagger: 0.12, delay: 1.1,
-        ease: 'power4.out'
-      });
-      gsap.from('.hero__meta', { opacity: 0, y: 30, duration: 0.9, delay: 1.5, ease: 'power3.out' });
-      gsap.from('.hero__image-wrap', { opacity: 0, scale: 1.06, duration: 1.4, delay: 1.0, ease: 'power3.out' });
-      gsap.from('.hero__scroll-cue', { opacity: 0, duration: 0.8, delay: 2.0, ease: 'power2.out' });
+      gsap.from('.hero__title-row', { y: '110%', duration: 1.1, stagger: 0.12, delay: 1.1, ease: 'power4.out' });
+      gsap.from('.hero__meta', { opacity: 0, y: 24, duration: 0.9, delay: 1.6, ease: 'power3.out' });
     });
 
-    // ─── Sticky nav ───
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('nav--scrolled', window.scrollY > 60);
-    }, { passive: true });
+    // ─── Nav: white over hero, dark when scrolled past ───
+    const nav  = document.getElementById('nav');
+    const hero = document.getElementById('hero');
+    function updateNav() {
+      const pastHero = window.scrollY >= hero.offsetHeight - 80;
+      nav.classList.toggle('nav--past-hero', pastHero);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
 
     // ─── Mobile menu ───
-    const menuBtn  = document.getElementById('menuBtn');
+    const menuBtn    = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('is-open');
       menuBtn.classList.toggle('is-open', open);
-      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
     });
     document.querySelectorAll('.nav__mobile-link').forEach(link =>
       link.addEventListener('click', () => {
@@ -386,9 +376,8 @@
     // ─── Services accordion ───
     document.querySelectorAll('.service-item__head').forEach(btn => {
       btn.addEventListener('click', () => {
-        const item = btn.closest('.service-item');
+        const item   = btn.closest('.service-item');
         const isOpen = item.classList.contains('is-open');
-        // close all
         document.querySelectorAll('.service-item').forEach(el => {
           el.classList.remove('is-open');
           el.querySelector('.service-item__head').setAttribute('aria-expanded', 'false');
@@ -400,8 +389,7 @@
       });
     });
 
-    // ─── ScrollTrigger section animations ───
-    // Section tags + headings
+    // ─── ScrollTrigger animations ───
     gsap.utils.toArray('.section-tag').forEach(el =>
       gsap.from(el, { opacity: 0, x: -20, duration: 0.7, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' } })
@@ -410,8 +398,6 @@
       gsap.from(el, { opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 85%' } })
     );
-
-    // About
     gsap.from('.about__text', {
       opacity: 0, x: -40, duration: 1, ease: 'power3.out',
       scrollTrigger: { trigger: '.about__body', start: 'top 80%' }
@@ -420,25 +406,18 @@
       opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out',
       scrollTrigger: { trigger: '.about__stats', start: 'top 82%' }
     });
-
-    // Work items
     gsap.utils.toArray('.work__item').forEach((item, i) =>
       gsap.from(item, {
-        opacity: 0, y: 60, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: item, start: 'top 88%' },
-        delay: i % 2 * 0.1
+        opacity: 0, y: 60, duration: 0.9, ease: 'power3.out', delay: i % 2 * 0.1,
+        scrollTrigger: { trigger: item, start: 'top 88%' }
       })
     );
-
-    // Service items
     gsap.utils.toArray('.service-item').forEach((item, i) =>
       gsap.from(item, {
         opacity: 0, x: -30, duration: 0.8, ease: 'power3.out', delay: i * 0.06,
         scrollTrigger: { trigger: item, start: 'top 88%' }
       })
     );
-
-    // Testimonials
     gsap.from('.testimonial-card', {
       opacity: 0, y: 50, duration: 0.9, stagger: 0.15, ease: 'power3.out',
       scrollTrigger: { trigger: '.testimonials__grid', start: 'top 82%' }
