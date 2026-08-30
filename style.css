@@ -553,34 +553,55 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 }
 
 .scd-01__scene {
-  width: min(720px, 100%);
+  width: min(1440px, 100%);
   margin: 0 auto;
   padding: 4vh clamp(1.25rem, 5vw, 3rem) 30vh;
 }
 
+/* ─── card layout: 50/50 split ─── */
 .scd-01__card {
   position: sticky;
   top: calc(90px + var(--i) * 20px);
   margin-bottom: 50px;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
+  display: flex;
+  height: 720px;
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 24px 48px -20px rgba(0,0,0,.12);
+  box-shadow: 0 32px 64px -24px rgba(0,0,0,.14);
   animation: scd-01-shrink linear both;
   animation-timeline: view();
   animation-range: exit;
 }
 
-.scd-01__card-inner {
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+.scd-01__card-left {
+  width: 50%;
+  flex-shrink: 0;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.scd-01__card-right {
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.scd-01__card-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .scd-01__meta {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.75rem;
 }
 
 .scd-01__num {
@@ -596,29 +617,19 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   color: var(--text-muted);
 }
 
-.scd-01__card h3 {
+.scd-01__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   letter-spacing: 0.02em;
   line-height: 1;
-  margin-bottom: 0.75rem;
   color: var(--text);
 }
 
-.scd-01__card p {
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  line-height: 1.6;
+.scd-01__text {
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  line-height: 1.65;
   color: var(--text-muted);
-  max-width: 52ch;
-  margin-bottom: 1.5rem;
-}
-
-.scd-01__img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
+  max-width: 38ch;
 }
 
 .scd-01__end {
