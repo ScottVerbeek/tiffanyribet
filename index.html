@@ -1,16 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tiffany Ribet</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Tiffany Ribet</h1>
-      <p>🚧 Under Construction 🚧</p>
-      <p>Something great is coming soon. Check back later!</p>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiffany Ribet — Creative Director</title>
+  <meta name="description" content="Tiffany Ribet — Creative director and visual storyteller specialising in brand identity, art direction, and digital experiences." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet" />
+
+  <!-- Lenis smooth scroll CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── PRELOADER ─── -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__logo">// TIFFANY</div>
+    <div class="preloader__bar"><div class="preloader__bar-fill"></div></div>
+  </div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">// TIFFANY</a>
+
+      <div class="nav__links">
+        <a href="#work"     class="nav__link">Work</a>
+        <a href="#about"    class="nav__link">About</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#contact"  class="nav__link">Contact</a>
+      </div>
+
+      <button class="nav__hamburger" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile overlay menu -->
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#work"     class="nav__mobile-link">Work</a>
+      <a href="#about"    class="nav__mobile-link">About</a>
+      <a href="#services" class="nav__mobile-link">Services</a>
+      <a href="#contact"  class="nav__mobile-link">Contact</a>
+      <div class="nav__mobile-footer">
+        <a href="mailto:hello@tiffanyribet.com">hello@tiffanyribet.com</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">Creative Director &amp; Visual Storyteller</div>
+      <h1 class="hero__title">
+        <span class="hero__title-row">TIFFANY</span>
+        <span class="hero__title-row hero__title-row--stroke">RIBET</span>
+      </h1>
+      <div class="hero__meta">
+        <div class="hero__stat">
+          <span class="hero__stat-num">10+</span>
+          <span class="hero__stat-label">Years experience</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">80+</span>
+          <span class="hero__stat-label">Projects delivered</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__image-wrap">
+      <img
+        src="profile.png"
+        alt="Tiffany Ribet"
+        class="hero__image"
+      />
+    </div>
+
+    <div class="hero__scroll-cue">
+      <span class="hero__scroll-text">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__header">
+        <span class="section-tag">— About me</span>
+        <h2 class="about__title">Design that moves<br>people forward</h2>
+      </div>
+      <div class="about__body">
+        <div class="about__text">
+          <p>I'm a creative director and visual storyteller based in Paris, crafting bold identities and digital experiences that resonate. My work lives at the intersection of culture, emotion, and strategy.</p>
+          <p>From brand campaigns to editorial shoots, I bring a sharp eye and a considered hand to every project I take on — helping brands find their voice and make it impossible to ignore.</p>
+          <a href="#contact" class="btn btn--outline">Work with me →</a>
+        </div>
+        <div class="about__stats">
+          <div class="about__stat-item">
+            <span class="about__stat-num">2014</span>
+            <span class="about__stat-label">Year started</span>
+          </div>
+          <div class="about__stat-item">
+            <span class="about__stat-num">30+</span>
+            <span class="about__stat-label">Brand identities</span>
+          </div>
+          <div class="about__stat-item">
+            <span class="about__stat-num">12</span>
+            <span class="about__stat-label">Awards won</span>
+          </div>
+          <div class="about__stat-item">
+            <span class="about__stat-num">5</span>
+            <span class="about__stat-label">Countries worked in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORK ─── -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="work__header">
+        <span class="section-tag">— Selected work</span>
+        <h2 class="work__title">FEATURED<br>PROJECTS</h2>
+      </div>
+      <div class="work__grid">
+
+        <article class="work__item" style="--item-color: #ab9bff;">
+          <div class="work__item-visual"><div class="work__item-bg"></div></div>
+          <div class="work__item-info">
+            <span class="work__item-num">01</span>
+            <div>
+              <h3 class="work__item-title">Lumière Brand Identity</h3>
+              <p class="work__item-tags">Branding · Visual Identity · Strategy</p>
+            </div>
+            <span class="work__item-arrow">→</span>
+          </div>
+        </article>
+
+        <article class="work__item" style="--item-color: #ff905f;">
+          <div class="work__item-visual"><div class="work__item-bg"></div></div>
+          <div class="work__item-info">
+            <span class="work__item-num">02</span>
+            <div>
+              <h3 class="work__item-title">Editorial Shoot — Vogue FR</h3>
+              <p class="work__item-tags">Photography · Art Direction</p>
+            </div>
+            <span class="work__item-arrow">→</span>
+          </div>
+        </article>
+
+        <article class="work__item" style="--item-color: #e8221a;">
+          <div class="work__item-visual"><div class="work__item-bg"></div></div>
+          <div class="work__item-info">
+            <span class="work__item-num">03</span>
+            <div>
+              <h3 class="work__item-title">Campaign — Maison Laurent</h3>
+              <p class="work__item-tags">Campaign · Digital · Print</p>
+            </div>
+            <span class="work__item-arrow">→</span>
+          </div>
+        </article>
+
+        <article class="work__item" style="--item-color: #b8c56f;">
+          <div class="work__item-visual"><div class="work__item-bg"></div></div>
+          <div class="work__item-info">
+            <span class="work__item-num">04</span>
+            <div>
+              <h3 class="work__item-title">Digital Experience — Apex</h3>
+              <p class="work__item-tags">UI Design · Interaction · Motion</p>
+            </div>
+            <span class="work__item-arrow">→</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services__header">
+        <span class="section-tag">— What I do</span>
+        <h2 class="services__title">SERVICES</h2>
+      </div>
+      <div class="services__list">
+
+        <div class="service-item">
+          <button class="service-item__head" aria-expanded="false">
+            <span class="service-item__num">01</span>
+            <h3 class="service-item__title">Creative Direction</h3>
+            <span class="service-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="service-item__body">
+            <p>End-to-end creative leadership from concept to execution. I guide brands through visual strategy, campaign development, and brand evolution — ensuring every touchpoint is intentional and impactful.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <button class="service-item__head" aria-expanded="false">
+            <span class="service-item__num">02</span>
+            <h3 class="service-item__title">Brand Identity</h3>
+            <span class="service-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="service-item__body">
+            <p>Logo systems, colour palettes, typography, and brand guidelines that communicate who you are with clarity and confidence. Built to scale across every medium.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <button class="service-item__head" aria-expanded="false">
+            <span class="service-item__num">03</span>
+            <h3 class="service-item__title">Art Direction</h3>
+            <span class="service-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="service-item__body">
+            <p>Directing photo and video shoots with a precise visual language. I work with photographers, stylists, and production teams to realise compelling imagery that tells a story.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <button class="service-item__head" aria-expanded="false">
+            <span class="service-item__num">04</span>
+            <h3 class="service-item__title">Digital Experience</h3>
+            <span class="service-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="service-item__body">
+            <p>Website design, UI systems, and interactive concepts built for beauty and usability. Translating brand identity into digital environments that perform.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials">
+    <div class="container">
+      <span class="section-tag">— Kind words</span>
+      <div class="testimonials__grid">
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-card__quote">"Tiffany brought a level of creative precision that elevated our entire brand. The results speak for themselves — and our audience noticed immediately."</p>
+          <footer class="testimonial-card__author">
+            <span class="testimonial-card__name">Sophie Laurent</span>
+            <span class="testimonial-card__role">CEO, Maison Laurent</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-card__quote">"Working with Tiffany was a masterclass in vision. She understood our audience instantly and delivered something truly extraordinary."</p>
+          <footer class="testimonial-card__author">
+            <span class="testimonial-card__name">Marcus Webb</span>
+            <span class="testimonial-card__role">Creative Director, Apex Studio</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-card__quote">"The brand identity Tiffany created has been transformative. We've had more recognition in 6 months than the previous 3 years combined."</p>
+          <footer class="testimonial-card__author">
+            <span class="testimonial-card__name">Aria Chen</span>
+            <span class="testimonial-card__role">Founder, Lumière Co.</span>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta" id="contact">
+    <div class="cta__ticker" aria-hidden="true">
+      <div class="cta__ticker-track">
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+        <!-- duplicated for seamless loop -->
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+        <span class="cta__ticker-item">Let's Work Together</span>
+        <span class="cta__ticker-item cta__ticker-item--stroke">Let's Work Together</span>
+      </div>
+    </div>
+    <div class="cta__body">
+      <a href="mailto:hello@tiffanyribet.com" class="btn btn--cta">
+        <span>Get in touch</span>
+        <span class="btn__arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer__wordmark" aria-hidden="true">TIFFANY<br>RIBET</div>
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <p>Paris, France</p>
+        <a href="mailto:hello@tiffanyribet.com">hello@tiffanyribet.com</a>
+      </div>
+      <div class="footer__col">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Behance</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2025 Tiffany Ribet</span>
+      <span>Designed with intent</span>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ─── Lenis smooth scroll ───
+    const lenis = new Lenis({ lerp: 0.08 });
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // ─── Preloader ───
+    window.addEventListener('load', () => {
+      gsap.to('.preloader__bar-fill', { scaleX: 1, duration: 0.7, ease: 'power2.inOut' });
+      gsap.to('#preloader', {
+        opacity: 0, duration: 0.5, delay: 1.0, ease: 'power2.inOut',
+        onComplete() { document.getElementById('preloader').style.display = 'none'; }
+      });
+
+      // Hero entrance
+      gsap.from('.hero__eyebrow', { opacity: 0, y: 20, duration: 0.8, delay: 1.2, ease: 'power3.out' });
+      gsap.from('.hero__title-row', {
+        y: '110%', duration: 1.1, stagger: 0.12, delay: 1.1,
+        ease: 'power4.out'
+      });
+      gsap.from('.hero__meta', { opacity: 0, y: 30, duration: 0.9, delay: 1.5, ease: 'power3.out' });
+      gsap.from('.hero__image-wrap', { opacity: 0, scale: 1.06, duration: 1.4, delay: 1.0, ease: 'power3.out' });
+      gsap.from('.hero__scroll-cue', { opacity: 0, duration: 0.8, delay: 2.0, ease: 'power2.out' });
+    });
+
+    // ─── Sticky nav ───
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('nav--scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── Mobile menu ───
+    const menuBtn  = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('is-open');
+      menuBtn.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav__mobile-link').forEach(link =>
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        menuBtn.classList.remove('is-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      })
+    );
+
+    // ─── Services accordion ───
+    document.querySelectorAll('.service-item__head').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.service-item');
+        const isOpen = item.classList.contains('is-open');
+        // close all
+        document.querySelectorAll('.service-item').forEach(el => {
+          el.classList.remove('is-open');
+          el.querySelector('.service-item__head').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ─── ScrollTrigger section animations ───
+    // Section tags + headings
+    gsap.utils.toArray('.section-tag').forEach(el =>
+      gsap.from(el, { opacity: 0, x: -20, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' } })
+    );
+    gsap.utils.toArray('.about__title, .work__title, .services__title').forEach(el =>
+      gsap.from(el, { opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' } })
+    );
+
+    // About
+    gsap.from('.about__text', {
+      opacity: 0, x: -40, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: '.about__body', start: 'top 80%' }
+    });
+    gsap.from('.about__stat-item', {
+      opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: '.about__stats', start: 'top 82%' }
+    });
+
+    // Work items
+    gsap.utils.toArray('.work__item').forEach((item, i) =>
+      gsap.from(item, {
+        opacity: 0, y: 60, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: item, start: 'top 88%' },
+        delay: i % 2 * 0.1
+      })
+    );
+
+    // Service items
+    gsap.utils.toArray('.service-item').forEach((item, i) =>
+      gsap.from(item, {
+        opacity: 0, x: -30, duration: 0.8, ease: 'power3.out', delay: i * 0.06,
+        scrollTrigger: { trigger: item, start: 'top 88%' }
+      })
+    );
+
+    // Testimonials
+    gsap.from('.testimonial-card', {
+      opacity: 0, y: 50, duration: 0.9, stagger: 0.15, ease: 'power3.out',
+      scrollTrigger: { trigger: '.testimonials__grid', start: 'top 82%' }
+    });
+  </script>
+
+</body>
 </html>
