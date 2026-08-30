@@ -526,7 +526,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
    WORK
 ═══════════════════════════════════════════════ */
 .work {
-  padding-block: var(--section-py);
+  padding-top: var(--section-py);
   border-top: 1px solid var(--border);
 }
 .work__header { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
@@ -536,51 +536,116 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   line-height: 0.92;
   letter-spacing: -0.01em;
 }
-.work__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-.work__item {
-  cursor: pointer;
+
+/* ─── Scroll-driven scaling card stack (scd-01) ─── */
+.scd-01,
+.scd-01 *,
+.scd-01 *::before,
+.scd-01 *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.scd-01 {
+  width: 100%;
+  background: var(--bg);
+}
+
+.scd-01__scene {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 4vh clamp(1.25rem, 5vw, 3rem) 30vh;
+}
+
+.scd-01__card {
+  position: sticky;
+  top: calc(90px + var(--i) * 20px);
+  margin-bottom: 50px;
+  border-radius: 20px;
   overflow: hidden;
   background: var(--surface);
-  transition: background 0.3s;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,.12);
+  animation: scd-01-shrink linear both;
+  animation-timeline: view();
+  animation-range: exit;
 }
-.work__item:hover { background: var(--surface-2); }
-.work__item-visual { aspect-ratio: 4 / 3; overflow: hidden; }
-.work__item-bg {
-  width: 100%; height: 100%;
-  background: var(--item-color, #ccc);
-  transition: transform 0.7s var(--ease-out);
-  opacity: 0.75;
+
+.scd-01__card-inner {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
 }
-.work__item:hover .work__item-bg { transform: scale(1.05); }
-.work__item-info {
-  padding: 1.5rem 1.75rem;
+
+.scd-01__meta {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  border-top: 1px solid var(--border);
+  gap: 1rem;
+  margin-bottom: 0.75rem;
 }
-.work__item-num {
+
+.scd-01__num {
   font-family: var(--font-heading);
   font-size: var(--text-xs);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: var(--text-muted);
-  min-width: 2rem;
 }
-.work__item-info > div { flex: 1; }
-.work__item-title {
+
+.scd-01__tags {
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.scd-01__card h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  font-size: clamp(1.75rem, 4vw, 3rem);
   letter-spacing: 0.02em;
   line-height: 1;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
 }
-.work__item-tags { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.04em; }
-.work__item-arrow {
-  font-size: 1.25rem;
+
+.scd-01__card p {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.6;
   color: var(--text-muted);
-  transition: transform 0.3s var(--ease-out), color 0.2s;
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
 }
-.work__item:hover .work__item-arrow { transform: translateX(4px); color: var(--text); }
+
+.scd-01__img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.scd-01__end {
+  text-align: center;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 8vh;
+}
+
+@keyframes scd-01-shrink {
+  to {
+    transform: scale(.92);
+    filter: brightness(.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scd-01__card { animation: none; }
+}
+
+/* ─── card accent colours ─── */
+.scd-01__card:nth-child(1) { background: #FFF9F0; }
+.scd-01__card:nth-child(2) { background: #F4F0FF; }
+.scd-01__card:nth-child(3) { background: #F0FFF4; }
+.scd-01__card:nth-child(4) { background: #FFF0F8; }
 
 /* ═══════════════════════════════════════════════
    SERVICES

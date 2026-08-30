@@ -170,60 +170,65 @@
   <section class="work" id="work">
     <div class="container">
       <div class="work__header">
-        <h2 class="work__title">Check this out</h2>
-      </div>
-      <div class="work__grid">
-
-        <article class="work__item" style="--item-color: #ab9bff;">
-          <div class="work__item-visual"><div class="work__item-bg"></div></div>
-          <div class="work__item-info">
-            <span class="work__item-num">01</span>
-            <div>
-              <h3 class="work__item-title">Lumière Brand Identity</h3>
-              <p class="work__item-tags">Branding · Visual Identity · Strategy</p>
-            </div>
-            <span class="work__item-arrow">→</span>
-          </div>
-        </article>
-
-        <article class="work__item" style="--item-color: #ff905f;">
-          <div class="work__item-visual"><div class="work__item-bg"></div></div>
-          <div class="work__item-info">
-            <span class="work__item-num">02</span>
-            <div>
-              <h3 class="work__item-title">Editorial Shoot — Vogue FR</h3>
-              <p class="work__item-tags">Photography · Art Direction</p>
-            </div>
-            <span class="work__item-arrow">→</span>
-          </div>
-        </article>
-
-        <article class="work__item" style="--item-color: #e8221a;">
-          <div class="work__item-visual"><div class="work__item-bg"></div></div>
-          <div class="work__item-info">
-            <span class="work__item-num">03</span>
-            <div>
-              <h3 class="work__item-title">Campaign — Maison Laurent</h3>
-              <p class="work__item-tags">Campaign · Digital · Print</p>
-            </div>
-            <span class="work__item-arrow">→</span>
-          </div>
-        </article>
-
-        <article class="work__item" style="--item-color: #b8c56f;">
-          <div class="work__item-visual"><div class="work__item-bg"></div></div>
-          <div class="work__item-info">
-            <span class="work__item-num">04</span>
-            <div>
-              <h3 class="work__item-title">Digital Experience — Apex</h3>
-              <p class="work__item-tags">UI Design · Interaction · Motion</p>
-            </div>
-            <span class="work__item-arrow">→</span>
-          </div>
-        </article>
-
+        <span class="section-tag">— Selected work</span>
+        <h2 class="work__title">HIGHLIGHTS</h2>
       </div>
     </div>
+
+    <section class="scd-01" aria-label="Work highlights stack">
+      <div class="scd-01__scene">
+
+        <article class="scd-01__card" style="--i:0">
+          <div class="scd-01__card-inner">
+            <div class="scd-01__meta">
+              <span class="scd-01__num">01</span>
+              <span class="scd-01__tags">Entertainment · Production · Events</span>
+            </div>
+            <h3>Head of Entertainment</h3>
+            <p>Directed end-to-end entertainment strategy for the Brisbane French Festival — curating multi-stage programs for 13,000+ attendees, optimising a $100K production budget by 10%, and coordinating 180+ performers across 25+ acts.</p>
+            <img src="work-5.jpeg" alt="Brisbane French Festival" class="scd-01__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="scd-01__card" style="--i:1">
+          <div class="scd-01__card-inner">
+            <div class="scd-01__meta">
+              <span class="scd-01__num">02</span>
+              <span class="scd-01__tags">Marketing · Global Partnerships · Strategy</span>
+            </div>
+            <h3>Marketing Specialist</h3>
+            <p>At Australia's leading internship provider, I lead end-to-end marketing and promotional strategies across a diverse international network spanning Europe, North and South America, and Asia.</p>
+            <img src="work-4.jpeg" alt="Australian Internships" class="scd-01__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="scd-01__card" style="--i:2">
+          <div class="scd-01__card-inner">
+            <div class="scd-01__meta">
+              <span class="scd-01__num">03</span>
+              <span class="scd-01__tags">Campaigns · Social Media · Cultural Events</span>
+            </div>
+            <h3>Marketing &amp; Events Officer</h3>
+            <p>For Alliance Française de Brisbane, I drove enrolment and sell-out attendance through targeted multi-channel campaigns, graphic design, and Meta-driven data analysis while coordinating cultural events.</p>
+            <img src="work-3.jpeg" alt="Alliance Française Brisbane" class="scd-01__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="scd-01__card" style="--i:3">
+          <div class="scd-01__card-inner">
+            <div class="scd-01__meta">
+              <span class="scd-01__num">04</span>
+              <span class="scd-01__tags">Leadership · Digital · Print · Crisis Comms</span>
+            </div>
+            <h3>Head of Communication</h3>
+            <p>Led a cross-functional team at a web agency, advising clients across industries on comprehensive marketing strategies and crisis pivots during the COVID-19 pandemic, directing end-to-end production for digital and print campaigns.</p>
+            <img src="work-2.jpeg" alt="Media Sense" class="scd-01__img" loading="lazy" />
+          </div>
+        </article>
+
+        <div class="scd-01__end">And the journey continues →</div>
+      </div>
+    </section>
   </section>
   <!-- ─── SERVICES ─── -->
   <section class="services" id="services">
@@ -452,10 +457,10 @@
       opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out',
       scrollTrigger: { trigger: '.about__stats', start: 'top 82%' }
     });
-    gsap.utils.toArray('.work__item').forEach((item, i) =>
-      gsap.from(item, {
-        opacity: 0, y: 60, duration: 0.9, ease: 'power3.out', delay: i % 2 * 0.1,
-        scrollTrigger: { trigger: item, start: 'top 88%' }
+    gsap.utils.toArray('.scd-01__card').forEach((card, i) =>
+      gsap.from(card, {
+        opacity: 0, y: 40, duration: 0.8, ease: 'power3.out', delay: i * 0.08,
+        scrollTrigger: { trigger: card, start: 'top 90%' }
       })
     );
     gsap.utils.toArray('.service-item').forEach((item, i) =>
