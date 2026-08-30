@@ -87,33 +87,103 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about__header">
-        <span class="section-tag">— About me</span>
-        <h2 class="about__title">Design that moves<br>people forward</h2>
+        <h2 class="about__title">Ideas in Motion</h2>
       </div>
       <div class="about__body">
         <div class="about__text">
-          <p>I'm a creative director and visual storyteller based in Paris, crafting bold identities and digital experiences that resonate. My work lives at the intersection of culture, emotion, and strategy.</p>
-          <p>From brand campaigns to editorial shoots, I bring a sharp eye and a considered hand to every project I take on — helping brands find their voice and make it impossible to ignore.</p>
+          <p>With nearly a decade of experience shaping brands and driving growth, I’m a strategist who thrives on big challenges and loves turning them into wins. My background spans digital transformation, marketing, and large-scale event management,  I don't just build the vision, I bring it to life, whether that's coordinating seamlessly with international partners from the four corners of the globe or steering local stakeholders. Because we spend a huge part of our lives working, I’m all about making it a genuine passion project and a great time shared with the team.</p>
           <a href="#contact" class="btn btn--outline">Work with me →</a>
         </div>
-        <div class="about__stats">
-          <div class="about__stat-item">
-            <span class="about__stat-num">2014</span>
-            <span class="about__stat-label">Year started</span>
-          </div>
-          <div class="about__stat-item">
-            <span class="about__stat-num">30+</span>
-            <span class="about__stat-label">Brand identities</span>
-          </div>
-          <div class="about__stat-item">
-            <span class="about__stat-num">12</span>
-            <span class="about__stat-label">Awards won</span>
-          </div>
-          <div class="about__stat-item">
-            <span class="about__stat-num">5</span>
-            <span class="about__stat-label">Countries worked in</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TIMELINE ─── -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <span class="section-tag">— My journey</span>
+    </div>
+    <div class="timeline__scroll">
+      <div class="timeline__track">
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#FF8F64">Paris beginnings</div>
+          <h2 class="timeline__year">2014</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Began my creative career in Paris, working across editorial photography and visual identity — finding my voice at the intersection of culture and design.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
           </div>
         </div>
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#DCA8FF">First studio</div>
+          <h2 class="timeline__year">2016</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Opened my first independent studio, taking on brand identity projects and working directly with founders who wanted design that meant something.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#B7FF93">Creative director</div>
+          <h2 class="timeline__year">2018</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Stepped into the creative director role, leading campaigns for fashion and luxury clients. Art direction became my primary language for storytelling.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#F8A7FF">International work</div>
+          <h2 class="timeline__year">2020</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Expanded into international brand work, collaborating with clients across Europe and beyond — delivering bold, culturally considered creative strategy.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#FFD37A">Award recognition</div>
+          <h2 class="timeline__year">2022</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Work recognised with multiple industry awards. A landmark year for both the depth of projects and the calibre of brands choosing to collaborate.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__tag" style="background:#FFA5A6">New vision</div>
+          <h2 class="timeline__year">2024</h2>
+          <div class="timeline__line"></div>
+          <div class="timeline__body">
+            <div class="timeline__divider"></div>
+            <p class="timeline__text">Redefined the studio's focus — leaning into fewer, deeper engagements. Building the work and legacy that will define the next decade of creative practice.</p>
+            <div class="timeline__img-wrap">
+              <div class="timeline__img-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -422,6 +492,74 @@
       opacity: 0, y: 50, duration: 0.9, stagger: 0.15, ease: 'power3.out',
       scrollTrigger: { trigger: '.testimonials__grid', start: 'top 82%' }
     });
+
+    // ─── Timeline: pinned horizontal scroll ───
+    (function () {
+      const wrap  = document.querySelector('.timeline__scroll');
+      const track = document.querySelector('.timeline__track');
+      const nav   = document.getElementById('nav');
+      if (!wrap || !track) return;
+
+      const navH = () => nav ? nav.offsetHeight : 0;
+
+      gsap.to(track, {
+        x: () => -(track.scrollWidth - wrap.offsetWidth),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrap,
+          pin: true,
+          scrub: 1.2,
+          start: () => `top ${navH()}px`,
+          end: () => '+=' + (track.scrollWidth - wrap.offsetWidth) * 2.5,
+          invalidateOnRefresh: true,
+        }
+      });
+    })();
+
+    // ─── Hero title: magnetic letter-spacing ───
+    (function () {
+      const hero    = document.getElementById('hero');
+      const title   = document.querySelector('.hero__title');
+      const row     = document.querySelector('.hero__title-row');
+      const overlay = document.querySelector('.hero__overlay');
+      if (!hero || !title || !row || !overlay) return;
+
+      const LERP    = 0.08;
+      const LS_MIN  = -0.02;
+
+      let lsMax   = 0;
+      let target  = 0;
+      let current = 0;
+
+      function calc() {
+        title.style.letterSpacing = '0em';
+        const padLeft   = parseFloat(getComputedStyle(overlay).paddingLeft) || 0;
+        const fs        = parseFloat(getComputedStyle(title).fontSize);
+        const textW     = row.getBoundingClientRect().width;
+        const available = window.innerWidth - padLeft;
+        const gaps      = row.textContent.trim().length - 1;
+        const lsEm      = gaps > 0 ? ((available - textW) / gaps) / fs : 0;
+        lsMax   = Math.max(lsEm, 0);
+        target  = lsMax;
+        current = lsMax;
+        document.documentElement.style.setProperty('--hero-ls', lsMax.toFixed(5) + 'em');
+      }
+
+      document.fonts.ready.then(calc);
+      window.addEventListener('resize', calc);
+
+      hero.addEventListener('mousemove', function (e) {
+        const xPct = e.clientX / window.innerWidth;
+        target = lsMax - xPct * (lsMax - LS_MIN);
+      });
+      hero.addEventListener('mouseleave', function () { target = lsMax; });
+
+      (function tick() {
+        current += (target - current) * LERP;
+        document.documentElement.style.setProperty('--hero-ls', current.toFixed(5) + 'em');
+        requestAnimationFrame(tick);
+      })();
+    })();
   </script>
 
 </body>
