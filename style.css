@@ -746,16 +746,23 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   border-top: 1px solid var(--border);
   background: var(--surface);
 }
-.testimonials__grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.testimonials__grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .testimonial-card {
   background: var(--bg);
   padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 2rem;
   transition: background 0.3s;
 }
 .testimonial-card:hover { background: var(--surface-2); }
+.testimonial-card__stars {
+  font-size: 1.1rem;
+  color: #f5a623;
+  letter-spacing: 0.1em;
+}
 .testimonial-card__quote {
   font-size: var(--text-lg);
   line-height: 1.75;
