@@ -595,6 +595,12 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   align-items: center;
 }
 
+/* On desktop, Instagram embeds can exceed card height — scroll within the panel */
+.scd-01__card-right:has(.instagram-media) {
+  overflow-y: auto;
+  align-items: center;
+}
+
 .scd-01__card-right img {
   width: 100%;
   height: 100%;
@@ -871,6 +877,31 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   .scd-01__card-right {
     height: 260px;
   }
+  /* Instagram embeds need more room to show the full UI including like button */
+  .scd-01__card-right:has(.instagram-media) {
+    height: 680px;
+  }
+  .scd-01__card-right:has(.instagram-media) .instagram-media {
+    height: 680px !important;
+    max-height: none !important;
+  }
+  /* Images: let aspect ratio drive height instead of fixed 260px */
+  .scd-01__card-right:has(img) {
+    height: auto;
+  }
+  .scd-01__card-right img {
+    aspect-ratio: 620 / 660;
+    height: auto;
+  }
+  /* YouTube: let the iframe drive its own 16:9 height */
+  .scd-01__card-right.youtube-container {
+    height: auto;
+  }
+  .scd-01__card-right.youtube-container iframe {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    width: 100%;
+  }
 }
 
 /* ═══════════════════════════════════════════════
@@ -906,19 +937,12 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 /* ═══════════════════════════════════════════════
    Instagram embed fix
 ═══════════════════════════════════════════════ */
-.instagram-container {
-  width: 100%;
-  max-width: 600px;
-  height: 600px;
-  max-height: 600px;
-  overflow: hidden;
+/* YouTube iframe: fill its card-right panel responsively */
+.scd-01__card-right.youtube-container {
+  align-items: stretch;
 }
-
-.instagram-container .instagram-media {
-  width: 100% !important;
-  max-width: 600px !important;
-  min-width: 0 !important;
-  height: 600px !important;
-  max-height: 600px !important;
-  margin: 0 !important;
+.scd-01__card-right.youtube-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
