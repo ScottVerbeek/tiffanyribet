@@ -514,7 +514,7 @@
           trigger: wrap,
           pin: true,
           scrub: 0.5,
-          start: () => `top ${navH()}px`,
+          start: () => `top ${navH() + 24}px`,
           end: () => '+=' + (track.scrollWidth - wrap.offsetWidth) * 1.0,
           invalidateOnRefresh: true,
         }

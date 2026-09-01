@@ -427,7 +427,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 
 .timeline__track {
   display: flex;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   padding: 0 var(--pad-x) var(--section-py);
   width: max-content;
 }
