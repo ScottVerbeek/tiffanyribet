@@ -19,7 +19,7 @@
 <body>
 
   <!-- ─── PRELOADER ─── -->
-  <div class="preloader" id="preloader">
+  <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader__logo">// TIFFANY</div>
     <div class="preloader__bar"><div class="preloader__bar-fill"></div></div>
   </div>
@@ -27,26 +27,26 @@
   <!-- ─── NAVIGATION (fixed, outside hero) ─── -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">// TIFFANY</a>
+      <a href="/" class="nav__logo" title="Go to homepage">// TIFFANY</a>
 
       <div class="nav__links">
-        <a href="#about"    class="nav__link">About</a>
-        <a href="#work"     class="nav__link">Work</a>
-        <a href="#contact"  class="nav__link">Contact</a>
+        <a href="#about"    class="nav__link" title="Jump to About section">About</a>
+        <a href="#work"     class="nav__link" title="Jump to Work section">Work</a>
+        <a href="#contact"  class="nav__link" title="Jump to Contact section">Contact</a>
       </div>
 
-      <button class="nav__hamburger" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav__hamburger" id="menuBtn" title="Toggle navigation menu" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <!-- Mobile overlay menu -->
     <div class="nav__mobile" id="mobileMenu">
-      <a href="#work"     class="nav__mobile-link">Work</a>
-      <a href="#about"    class="nav__mobile-link">About</a>
-      <a href="#contact"  class="nav__mobile-link">Contact</a>
+      <a href="#work"     class="nav__mobile-link" title="Jump to Work section">Work</a>
+      <a href="#about"    class="nav__mobile-link" title="Jump to About section">About</a>
+      <a href="#contact"  class="nav__mobile-link" title="Jump to Contact section">Contact</a>
       <div class="nav__mobile-footer">
-        <a href="mailto:tiffanyribet@gmail.com">tiffanyribet@gmail.com</a>
+        <a href="mailto:tiffanyribet@gmail.com" title="Email Tiffany Ribet">tiffanyribet@gmail.com</a>
       </div>
     </div>
   </nav>
@@ -85,7 +85,7 @@
       <div class="about__body">
         <div class="about__text">
           <p>With nearly a decade of experience shaping brands and driving growth, I’m a strategist who thrives on big challenges and loves turning them into wins. My background spans digital transformation, marketing, and large-scale event management,  I don't just build the vision, I bring it to life, whether that's coordinating seamlessly with international partners from the four corners of the globe or steering local stakeholders. Because we spend a huge part of our lives working, I’m all about making it a genuine passion project and a great time shared with the team.</p>
-          <a href="#contact" class="btn btn--outline">Work with me →</a>
+          <a href="#contact" class="btn btn--outline" title="Jump to contact section">Work with me →</a>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
       <div class="timeline__track">
 
         <div class="timeline__item">
-          <div class="timeline__tag" style="background:#FFD37A">Head of Entertainment</div>
+          <span class="timeline__tag">Head of Entertainment</span>
           <h2 class="timeline__year">2026</h2>
           <div class="timeline__line"></div>
           <div class="timeline__body">
@@ -110,7 +110,7 @@
         </div>
 
         <div class="timeline__item">
-          <div class="timeline__tag" style="background:#DCA8FF">Marketing Specialist</div>
+          <span class="timeline__tag">Marketing Specialist</span>
           <h2 class="timeline__year">2024</h2>
           <div class="timeline__line"></div>
           <div class="timeline__body">
@@ -123,7 +123,7 @@
         </div>
 
         <div class="timeline__item">
-          <div class="timeline__tag" style="background:#B7FF93">Marketing and Events Officer</div>
+          <span class="timeline__tag">Marketing and Events Officer</span>
           <h2 class="timeline__year">2023</h2>
           <div class="timeline__line"></div>
           <div class="timeline__body">
@@ -136,7 +136,7 @@
         </div>
 
         <div class="timeline__item">
-          <div class="timeline__tag" style="background:#F8A7FF">Head of Communication</div>
+          <span class="timeline__tag">Head of Communication</span>
           <h2 class="timeline__year">2018</h2>
           <div class="timeline__line"></div>
           <div class="timeline__body">
@@ -149,7 +149,7 @@
         </div>
 
         <div class="timeline__item">
-          <div class="timeline__tag" style="background:#FF8F64">Communication and Partnership Officer</div>
+          <span class="timeline__tag">Communication and Partnership Officer</span>
           <h2 class="timeline__year">2016</h2>
           <div class="timeline__line"></div>
           <div class="timeline__body">
@@ -172,10 +172,10 @@
       </div>
     </div>
 
-    <section class="scd-01" aria-label="Work highlights stack">
+    <div class="scd-01" role="region" aria-label="Work highlights stack">
       <div class="scd-01__scene">
 
-        <article class="scd-01__card" style="--i:0">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">Large scale event management</h3>
             <ul>
@@ -198,7 +198,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:1">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">360 degree marketing strategy</h3>
             <ul>
@@ -221,7 +221,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:2">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">Effective Marketing campaigns</h3>
             <ul>
@@ -244,7 +244,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:3">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">Strategic leadership across diverse sectors and crisis navigation</h3>
             <ul>
@@ -258,7 +258,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:4">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">Omnichannel retail launch &amp; physical store expansion</h3>
             <ul>
@@ -274,7 +274,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:5">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">Global event strategy</h3>
             <ul>
@@ -290,7 +290,7 @@
           </div>
         </article>
 
-        <article class="scd-01__card" style="--i:6">
+        <article class="scd-01__card">
           <div class="scd-01__card-left">
             <h3 class="scd-01__title">From scratch to success</h3>
             <ul>
@@ -306,7 +306,7 @@
         </article>
 
       </div>
-    </section>
+    </div>
   </section>
 
     <!-- ─── TESTIMONIALS ─── -->
@@ -367,7 +367,7 @@
       </div>
     </div>
     <div class="cta__body">
-      <a href="mailto:tiffanyribet@gmail.com" class="btn btn--cta">
+      <a href="mailto:tiffanyribet@gmail.com" class="btn btn--cta" title="Email Tiffany Ribet">
         <span>Get in touch</span>
         <span class="btn__arrow">→</span>
       </a>
@@ -382,12 +382,12 @@
         <p>Brisbane, Australia</p>
       </div>
       <div class="footer__col">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#work" title="Jump to Work section">Work</a>
+        <a href="#about" title="Jump to About section">About</a>
+        <a href="#contact" title="Jump to Contact section">Contact</a>
       </div>
       <div class="footer__col">
-        <a href="https://www.linkedin.com/in/tiffany-ribet/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/tiffany-ribet/" target="_blank" rel="noopener" title="View Tiffany Ribet's LinkedIn profile (opens in a new tab)">LinkedIn</a>
       </div>
     </div>
     <div class="container footer__bottom">
@@ -401,171 +401,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    // ─── Lenis smooth scroll ───
-    const lenis = new Lenis({ lerp: 0.08 });
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-    lenis.on('scroll', ScrollTrigger.update);
-
-    // ─── Preloader ───
-    window.addEventListener('load', () => {
-      gsap.to('.preloader__bar-fill', { scaleX: 1, duration: 0.7, ease: 'power2.inOut' });
-      gsap.to('#preloader', {
-        opacity: 0, duration: 0.5, delay: 1.0, ease: 'power2.inOut',
-        onComplete() { document.getElementById('preloader').style.display = 'none'; }
-      });
-      // Hero entrance
-      gsap.from('.hero__title-row', { y: '110%', duration: 1.1, stagger: 0.12, delay: 1.1, ease: 'power4.out' });
-      gsap.from('.hero__meta', { opacity: 0, y: 24, duration: 0.9, delay: 1.6, ease: 'power3.out' });
-    });
-
-    // ─── Nav: white over hero, dark when scrolled past ───
-    const nav  = document.getElementById('nav');
-    const hero = document.getElementById('hero');
-    function updateNav() {
-      const pastHero = window.scrollY >= hero.offsetHeight - 80;
-      nav.classList.toggle('nav--past-hero', pastHero);
-    }
-    window.addEventListener('scroll', updateNav, { passive: true });
-    updateNav();
-
-    // ─── Mobile menu ───
-    const menuBtn    = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('is-open');
-      menuBtn.classList.toggle('is-open', open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-    document.querySelectorAll('.nav__mobile-link').forEach(link =>
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('is-open');
-        menuBtn.classList.remove('is-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      })
-    );
-
-    // ─── Services accordion ───
-    document.querySelectorAll('.service-item__head').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item   = btn.closest('.service-item');
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.service-item').forEach(el => {
-          el.classList.remove('is-open');
-          el.querySelector('.service-item__head').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // ─── ScrollTrigger animations ───
-    gsap.utils.toArray('.section-tag').forEach(el =>
-      gsap.from(el, { opacity: 0, x: -20, duration: 0.7, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%' } })
-    );
-    gsap.utils.toArray('.about__title, .work__title, .services__title').forEach(el =>
-      gsap.from(el, { opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' } })
-    );
-    gsap.from('.about__text', {
-      opacity: 0, x: -40, duration: 1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.about__body', start: 'top 80%' }
-    });
-    gsap.from('.about__stat-item', {
-      opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.about__stats', start: 'top 82%' }
-    });
-    gsap.utils.toArray('.scd-01__card').forEach((card, i) =>
-      gsap.from(card, {
-        opacity: 0, y: 40, duration: 0.8, ease: 'power3.out', delay: i * 0.08,
-        scrollTrigger: { trigger: card, start: 'top 90%' }
-      })
-    );
-    gsap.utils.toArray('.service-item').forEach((item, i) =>
-      gsap.from(item, {
-        opacity: 0, x: -30, duration: 0.8, ease: 'power3.out', delay: i * 0.06,
-        scrollTrigger: { trigger: item, start: 'top 88%' }
-      })
-    );
-    gsap.from('.testimonial-card', {
-      opacity: 0, y: 50, duration: 0.9, stagger: 0.15, ease: 'power3.out',
-      scrollTrigger: { trigger: '.testimonials__grid', start: 'top 82%' }
-    });
-
-    // ─── Timeline: pinned horizontal scroll ───
-    (function () {
-      const wrap  = document.querySelector('.timeline__scroll');
-      const track = document.querySelector('.timeline__track');
-      const nav   = document.getElementById('nav');
-      if (!wrap || !track) return;
-
-      const navH = () => nav ? nav.offsetHeight : 0;
-
-      gsap.to(track, {
-        x: () => -(track.scrollWidth - wrap.offsetWidth),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: wrap,
-          pin: true,
-          scrub: 0.5,
-          start: () => `top ${navH() + 24}px`,
-          end: () => '+=' + (track.scrollWidth - wrap.offsetWidth) * 1.0,
-          invalidateOnRefresh: true,
-        }
-      });
-    })();
-
-    // ─── Hero title: magnetic letter-spacing ───
-    (function () {
-      const hero    = document.getElementById('hero');
-      const title   = document.querySelector('.hero__title');
-      const row     = document.querySelector('.hero__title-row');
-      const overlay = document.querySelector('.hero__overlay');
-      if (!hero || !title || !row || !overlay) return;
-
-      const LERP    = 0.08;
-      const LS_MIN  = -0.02;
-
-      let lsMax   = 0;
-      let target  = 0;
-      let current = 0;
-
-      function calc() {
-        title.style.letterSpacing = '0em';
-        const padLeft   = parseFloat(getComputedStyle(overlay).paddingLeft) || 0;
-        const fs        = parseFloat(getComputedStyle(title).fontSize);
-        const textW     = row.getBoundingClientRect().width;
-        const available = window.innerWidth - padLeft;
-        const gaps      = row.textContent.trim().length - 1;
-        const lsEm      = gaps > 0 ? ((available - textW) / gaps) / fs : 0;
-        lsMax   = Math.max(lsEm, 0);
-        target  = lsMax;
-        current = lsMax;
-        document.documentElement.style.setProperty('--hero-ls', lsMax.toFixed(5) + 'em');
-      }
-
-      document.fonts.ready.then(calc);
-      window.addEventListener('resize', calc);
-
-      hero.addEventListener('mousemove', function (e) {
-        const xPct = e.clientX / window.innerWidth;
-        target = lsMax - xPct * (lsMax - LS_MIN);
-      });
-      hero.addEventListener('mouseleave', function () { target = lsMax; });
-
-      (function tick() {
-        current += (target - current) * LERP;
-        document.documentElement.style.setProperty('--hero-ls', current.toFixed(5) + 'em');
-        requestAnimationFrame(tick);
-      })();
-    })();
-  </script>
+  <script src="app.js" defer></script>
 
 </body>
 </html>
