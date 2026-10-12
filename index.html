@@ -18,16 +18,10 @@
 </head>
 <body>
 
-  <!-- ─── PRELOADER ─── -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__logo">// TIFFANY</div>
-    <div class="preloader__bar"><div class="preloader__bar-fill"></div></div>
-  </div>
-
   <!-- ─── NAVIGATION (fixed, outside hero) ─── -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo" title="Go to homepage">// TIFFANY</a>
+      <a href="/" class="nav__logo" title="Go to homepage">//</a>
 
       <div class="nav__links">
         <a href="#about"    class="nav__link" title="Jump to About section">About</a>
@@ -53,25 +47,22 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero" id="hero">
-    <img src="profile.png" alt="Tiffany Ribet" class="hero__img" />
+    <h1 class="hero__title" aria-label="Tiffany Ribet">
+      <span class="hero__title-row">Tiffany</span>
+      <span class="hero__photo" id="heroPhoto">
+        <img src="profile.webp" alt="Tiffany Ribet" class="hero__img intro" id="heroImg" />
+      </span>
+      <span class="hero__title-row">Ribet</span>
+    </h1>
 
-    <!-- Text overlay -->
-    <div class="hero__overlay">
-      <!-- Title anchored to top-left — Ariyana style -->
-      <h1 class="hero__title">
-        <span class="hero__title-row">TIFFANY RIBET</span>
-      </h1>
-
-      <!-- Bottom row: eyebrow + stats + scroll cue -->
-      <div class="hero__meta">
-        <div class="hero__stat">
-          <span class="hero__stat-num">10+</span>
-          <span class="hero__stat-label">Years experience</span>
-        </div>
-        <div class="hero__scroll-cue">
-          <span class="hero__scroll-text">Scroll</span>
-          <div class="hero__scroll-line"></div>
-        </div>
+    <div class="hero__meta">
+      <div class="hero__stat">
+        <span class="hero__stat-num">10+</span>
+        <span class="hero__stat-label">Years experience</span>
+      </div>
+      <div class="hero__scroll-cue">
+        <span class="hero__scroll-text">Scroll</span>
+        <div class="hero__scroll-line"></div>
       </div>
     </div>
   </section>
@@ -367,10 +358,10 @@
       </div>
     </div>
     <div class="cta__body">
-      <a href="mailto:tiffanyribet@gmail.com" class="btn btn--cta" title="Email Tiffany Ribet">
-        <span>Get in touch</span>
+      <button type="button" class="btn btn--cta" id="copyEmailBtn" data-email="tiffanyribet@gmail.com" title="Copy email address">
+        <span class="btn__label">Get in touch - copy email</span>
         <span class="btn__arrow">→</span>
-      </a>
+      </button>
     </div>
   </section>
 

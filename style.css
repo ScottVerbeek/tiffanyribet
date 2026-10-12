@@ -90,6 +90,8 @@ button:focus-visible {
   transition: all 0.3s var(--ease-out);
   cursor: pointer;
   width: fit-content;
+  border: 0;
+  font-family: inherit;
 }
 .btn--outline {
   border: 1px solid var(--border);
@@ -114,43 +116,6 @@ button:focus-visible {
 .btn__arrow { font-size: 1.25em; }
 
 /* ═══════════════════════════════════════════════
-   PRELOADER  (stays dark — shown before page loads)
-═══════════════════════════════════════════════ */
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #0d0d0d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-}
-/* Applied by JS once the fade-out animation finishes, instead of an inline style */
-.preloader.preloader--hidden {
-  display: none;
-}
-.preloader__logo {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  letter-spacing: 0.06em;
-  color: #f0ede8;
-}
-.preloader__bar {
-  width: min(280px, 80vw);
-  height: 1px;
-  background: rgba(255 255 255 / 0.12);
-  overflow: hidden;
-}
-.preloader__bar-fill {
-  height: 100%;
-  background: #e8221a;
-  transform-origin: left;
-  transform: scaleX(0);
-}
-
-/* ═══════════════════════════════════════════════
    NAVIGATION
 ═══════════════════════════════════════════════ */
 .nav {
@@ -165,9 +130,9 @@ button:focus-visible {
 
 /* ── Default: over full-bleed hero image — white text ── */
 .nav__logo,
-.nav__link { color: rgba(255 255 255 / 0.92); }
-.nav__hamburger span { background: #fff; }
-.nav__link::after { background: #fff; }
+.nav__link { color: var(--text); }
+.nav__hamburger span { background: var(--text); }
+.nav__link::after { background: var(--text); }
 
 /* ── Past hero: cream frosted glass, dark text ── */
 .nav.nav--past-hero {
@@ -267,59 +232,89 @@ button:focus-visible {
 ═══════════════════════════════════════════════ */
 .hero {
   position: relative;
-  width: 100vw;
-}
-
-.hero__img {
-  display: block;
-  width: 100vw;
-  height: auto;
-}
-
-/* Text sits above the image */
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  z-index: 2;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #fff;
+  /*
+    background-color: hsla(327, 100%, 50%, 1);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1111 1111' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at 0% 99%, hsla(11, 100%, 50%, 1) 0%, transparent 67%), radial-gradient(circle at 46% 94%, hsla(327, 100%, 50%, 1) 0%, transparent 81%), radial-gradient(circle at 93% 95%, hsla(236, 100%, 23%, 1) 0%, transparent 66%), radial-gradient(circle at 89% 8%, hsla(206, 100%, 9%, 1) 0%, transparent 150%);
+    background-blend-mode: overlay, normal, normal, normal, normal;
+    */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: clamp(5rem, 11vw, 9rem) var(--pad-x) clamp(2rem, 4vw, 3.5rem);
-  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(5rem, 9vw, 7rem) var(--pad-x) clamp(2rem, 4vw, 3.5rem);
 }
 
 .hero__title {
-  font-family: var(--font-heading);
-  font-size: var(--h1);
-  line-height: 0.88;
-  letter-spacing: -0.02em;
-  text-align: left;
-  color: #fff;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12vw;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--text);
 }
-.hero__title-row { display: block; }
+.hero__title-row { display: block; overflow: hidden; padding-bottom: 0.1em; }
+
+/* Placeholder slot the intro image settles into */
+.hero__photo {
+  display: block;
+  height: 0.35em;
+  aspect-ratio: 16 / 9;
+  flex: none;
+}
+.hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Full-screen intro state, removed by JS after the transition */
+.hero__img.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 9999;
+  background: #fff;
+  transition-property: top, left, width, height;
+  transition-duration: 1.2s;
+  transition-timing-function: linear(0, 0.013 1%, 0.051 2.2%, 0.404 9.8%, 0.51 12.6%, 0.602 15.5%, 0.683 18.7%, 0.754 22.2%, 0.813 26%, 0.861 30.2%, 0.9 34.8%, 0.931 40%, 0.972 52.7%, 0.992 70.2%, 1);
+}
+html.is-intro { overflow: hidden; }
 
 /* Bottom meta row: eyebrow + stats */
 .hero__meta {
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: clamp(2rem, 4vw, 3.5rem);
+  width: auto;
   display: flex;
   align-items: flex-end;
   gap: clamp(2rem, 5vw, 4rem);
-  width: 100%;
 }
 .hero__stat { display: flex; flex-direction: column; gap: 0.3rem; }
 .hero__stat-num {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
-  color: #fff;
+  color: var(--text);
 }
 .hero__stat-label {
   font-size: var(--text-xs);
-  color: rgba(255 255 255 / 0.55);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -332,13 +327,13 @@ button:focus-visible {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255 255 255 / 0.55);
+  color: var(--text-muted);
   margin-left: auto;  /* push to right edge of the meta row */
 }
 .hero__scroll-line {
   width: 52px;
   height: 1px;
-  background: rgba(255 255 255 / 0.25);
+  background: rgba(0 0 0 / 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -347,7 +342,7 @@ button:focus-visible {
   position: absolute;
   inset-block: 0;
   width: 100%;
-  background: rgba(255 255 255 / 0.8);
+  background: var(--text);
   animation: scroll-pulse 1.8s var(--ease-io) 2.2s infinite;
 }
 @keyframes scroll-pulse {
@@ -800,7 +795,6 @@ button:focus-visible {
 ═══════════════════════════════════════════════ */
 @media (max-width: 600px) {
   /* Scale hero title down gracefully on phones */
-  .hero__title { font-size: clamp(4.5rem, 19vw, 19vw); }
 
   .hero__meta { flex-wrap: wrap; gap: 1.25rem; }
   .hero__scroll-cue { margin-left: 0; width: 100%; }

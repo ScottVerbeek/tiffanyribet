@@ -5,7 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const nav = document.getElementById('nav');
 const hero = document.getElementById('hero');
-const preloader = document.getElementById('preloader');
 const menuButton = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -19,28 +18,40 @@ function initSmoothScroll() {
   lenis.on('scroll', ScrollTrigger.update);
 }
 
+// INTRO: full-screen photo on white, then settle between TIFFANY and RIBET
 // ═══════════════════════════════════════════════
-// PRELOADER
-// ═══════════════════════════════════════════════
-function playPreloaderAnimation() {
-  gsap.to('.preloader__bar-fill', { scaleX: 1, duration: 0.7, ease: 'power2.inOut' });
-  gsap.to(preloader, {
-    opacity: 0,
-    duration: 0.5,
-    delay: 1.0,
-    ease: 'power2.inOut',
-    onComplete() {
-      preloader.classList.add('preloader--hidden');
-    },
-  });
+function playIntro() {
+  const img = document.getElementById('heroImg');
+  const slot = document.getElementById('heroPhoto');
+  const root = document.documentElement;
 
-  // Hero entrance
-  gsap.from('.hero__title-row', { y: '110%', duration: 1.1, stagger: 0.12, delay: 1.1, ease: 'power4.out' });
-  gsap.from('.hero__meta', { opacity: 0, y: 24, duration: 0.9, delay: 1.6, ease: 'power3.out' });
+  gsap.set('.hero__meta', { opacity: 0, y: 24 });
+
+  const settle = () => {
+    const r = slot.getBoundingClientRect();
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      img.classList.remove('intro');
+      img.removeAttribute('style');
+      root.classList.remove('is-intro');
+    };
+    img.addEventListener('transitionend', (e) => { if (e.propertyName === 'width') finish(); });
+    setTimeout(finish, 1500);
+
+    img.style.top = r.top + 'px';
+    img.style.left = r.left + 'px';
+    img.style.width = r.width + 'px';
+    img.style.height = r.height + 'px';
+    gsap.to('.hero__meta', { opacity: 1, y: 0, duration: 0.8, delay: 0.7, ease: 'power3.out' });
+  };
+
+  const minWait = new Promise((res) => setTimeout(res, 1000));
+  const decoded = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  Promise.all([minWait, decoded, document.fonts.ready]).then(settle);
 }
 
-// ═══════════════════════════════════════════════
-// NAV: switches from "over hero" to "past hero" style on scroll
 // ═══════════════════════════════════════════════
 function updateNavAppearance() {
   const pastHero = window.scrollY >= hero.offsetHeight - 80;
@@ -194,6 +205,36 @@ function initHeroMagneticTitle() {
 }
 
 // ═══════════════════════════════════════════════
+// COPY EMAIL
+// ═══════════════════════════════════════════════
+function initCopyEmail() {
+  const btn = document.getElementById('copyEmailBtn');
+  if (!btn) return;
+  const label = btn.querySelector('.btn__label');
+  const arrow = btn.querySelector('.btn__arrow');
+  const original = label.textContent;
+  let timer;
+
+  btn.addEventListener('click', async () => {
+    const email = btn.dataset.email;
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = email;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+    }
+    label.textContent = 'Email copied!';
+    arrow.hidden = true;
+    clearTimeout(timer);
+    timer = setTimeout(() => { label.textContent = original; arrow.hidden = false; }, 2000);
+  });
+}
+
+// ═══════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════
 initSmoothScroll();
@@ -202,5 +243,7 @@ initMobileMenu();
 initScrollAnimations();
 initTimelineScroll();
 initHeroMagneticTitle();
+initCopyEmail();
 
-window.addEventListener('load', playPreloaderAnimation);
+document.documentElement.classList.add('is-intro');
+window.addEventListener('load', playIntro);
