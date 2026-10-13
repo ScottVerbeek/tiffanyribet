@@ -272,10 +272,25 @@ button:focus-visible {
   text-align: center;
   color: var(--text);
 }
+.hero__heading { position: relative; width: fit-content; }
+.hero__tagline {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1rem, 2.2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-align: center;
+}
 .hero__title-row { display: block; overflow: hidden; padding-bottom: 0.1em; }
 
 /* Placeholder slot the intro image settles into */
 .hero__photo {
+  position: relative;
   display: block;
   height: 0.35em;
   aspect-ratio: 16 / 9;
@@ -367,7 +382,7 @@ html.is-intro { overflow: hidden; }
   padding-block: var(--section-py);
   border-top: 1px solid var(--border);
 }
-.about__header { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+.about__header { margin-bottom: clamp(2rem, 4vw, 3.5rem); text-align: center; }
 .about__title {
   font-family: var(--font-heading);
   font-size: var(--h2);
@@ -376,9 +391,7 @@ html.is-intro { overflow: hidden; }
 }
 .about__body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: var(--gap);
-  align-items: start;
 }
 .about__text {
   display: flex;
@@ -389,6 +402,7 @@ html.is-intro { overflow: hidden; }
   font-size: var(--text-lg);
   color: var(--text-muted);
   line-height: 1.75;
+  text-align: center;
 }
 
 /* ═══════════════════════════════════════════════
