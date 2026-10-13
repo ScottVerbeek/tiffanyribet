@@ -26,7 +26,7 @@
   /* ── Layout ── */
   --container:  1380px;
   --pad-x:      clamp(1.5rem, 5vw, 5rem);
-  --section-py: clamp(5rem, 10vw, 10rem);
+  --section-py: clamp(2.5rem, 5vw, 5rem);
   --gap:        clamp(1.5rem, 3vw, 3rem);
   --radius-lg:  24px;
 
