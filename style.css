@@ -642,7 +642,7 @@ html.is-intro { overflow: hidden; }
   border-top: 1px solid var(--border);
   background: var(--surface);
 }
-.testimonials__grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.testimonials__grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .testimonial-card {
   background: var(--bg);
   padding: 2.5rem 2rem;
