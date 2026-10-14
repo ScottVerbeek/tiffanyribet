@@ -155,7 +155,36 @@ function initTimelineScroll() {
 // ═══════════════════════════════════════════════
 // TIMELINE TAGS: p5.js rectangular blobs behind the tag text
 // ═══════════════════════════════════════════════
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+// Run `callback` once, when `target` is within `margin` of the viewport
+function whenNear(target, margin, callback) {
+  if (!target) return;
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    io.disconnect();
+    callback();
+  }, { rootMargin: margin });
+  io.observe(target);
+}
+
 function initTagBlobs() {
+  whenNear(document.getElementById('timeline'), '800px 0px', () => {
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js')
+      .then(createTagBlobs)
+      .catch(() => {});
+  });
+}
+
+function createTagBlobs() {
   if (typeof p5 === 'undefined') return;
 
   const PAD = 14;
@@ -511,6 +540,9 @@ initTagBlobs();
 initHeroMagneticTitle();
 initCopyEmail();
 initGrain();
+whenNear(document.getElementById('work'), '800px 0px', () => {
+  loadScript('https://www.instagram.com/embed.js').catch(() => {});
+});
 initHeroBlobs();
 
 document.documentElement.classList.add('is-intro');
