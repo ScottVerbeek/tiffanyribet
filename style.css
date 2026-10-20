@@ -644,8 +644,8 @@ html.is-intro { overflow: hidden; }
 .scd-01__card:nth-child(2) { background: #DCA8FF; }
 .scd-01__card:nth-child(3) { background: #B7FF93; }
 .scd-01__card:nth-child(4) { background: #F8A7FF; }
-.scd-01__card:nth-child(5) { background: #F8A7FF; }
-.scd-01__card:nth-child(6) { background: #FF8F64; }
+.scd-01__card:nth-child(5) { background: #FF8F64; }
+.scd-01__card:nth-child(6) { background: #F8A7FF; }
 .scd-01__card:nth-child(7) { background: #FF8F64; }
 
 /* ═══════════════════════════════════════════════
