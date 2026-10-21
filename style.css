@@ -516,7 +516,9 @@ html.is-intro { overflow: hidden; }
 
 .timeline__img-wrap > img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
+  object-fit: cover;
   background: var(--border);
   border-radius: 24px;
 }
@@ -869,3 +871,6 @@ html.is-intro { overflow: hidden; }
   background: none;
   border-radius: 0;
 }
+
+/* Bebas Neue headings are always caps */
+.nav__logo, .nav__mobile-link, .hero__stat-num, .about__title, .timeline__year, .work__title, .scd-01__title, .cta__ticker-item, .footer__wordmark { text-transform: uppercase; }
