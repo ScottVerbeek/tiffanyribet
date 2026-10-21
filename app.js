@@ -47,9 +47,10 @@ function playIntro() {
     gsap.to('.hero__meta', { opacity: 1, y: 0, duration: 0.8, delay: 0.7, ease: 'power3.out' });
   };
 
-  const minWait = new Promise((res) => setTimeout(res, 1000));
+  const minWait = new Promise((res) => setTimeout(res, 300));
   const decoded = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
-  Promise.all([minWait, decoded, document.fonts.ready]).then(settle);
+  const fontsReady = Promise.race([document.fonts.ready, new Promise((res) => setTimeout(res, 1500))]);
+  Promise.all([minWait, decoded, fontsReady]).then(settle);
 }
 
 // ═══════════════════════════════════════════════
@@ -178,7 +179,7 @@ function whenNear(target, margin, callback) {
 
 function initTagBlobs() {
   whenNear(document.getElementById('timeline'), '800px 0px', () => {
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js')
+    loadScript('vendor/p5.min.js')
       .then(createTagBlobs)
       .catch(() => {});
   });
@@ -546,4 +547,4 @@ whenNear(document.getElementById('work'), '800px 0px', () => {
 initHeroBlobs();
 
 document.documentElement.classList.add('is-intro');
-window.addEventListener('load', playIntro);
+playIntro();
