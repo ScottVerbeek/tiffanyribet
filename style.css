@@ -426,6 +426,9 @@ html.is-intro { overflow: hidden; }
 }
 
 .timeline__scroll {
+  /* Pinned block never exceeds the viewport below the nav, up to a max on huge screens */
+  --timeline-offset: 8rem;
+  height: min(900px, calc(100svh - var(--timeline-offset)));
   overflow: hidden;
   position: relative;
 }
@@ -435,6 +438,8 @@ html.is-intro { overflow: hidden; }
   gap: clamp(2.5rem, 5vw, 4.5rem);
   padding: 0 var(--pad-x) var(--section-py);
   width: max-content;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .timeline__item {
@@ -475,7 +480,7 @@ html.is-intro { overflow: hidden; }
 
 .timeline__year {
   font-family: var(--font-heading);
-  font-size: clamp(6rem, 13vw, 12rem);
+  font-size: clamp(3rem, 13vw, min(12rem, 22vh));
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--text);
@@ -512,11 +517,17 @@ html.is-intro { overflow: hidden; }
 .timeline__img-wrap {
   margin-top: auto;
   padding-top: 1.5rem;
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end;
 }
 
 .timeline__img-wrap > img {
   width: 100%;
   height: auto;
+  max-height: 100%;
+  min-height: 120px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   background: var(--border);
