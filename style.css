@@ -602,7 +602,7 @@ html.is-intro { overflow: hidden; }
   padding: clamp(2.5rem, 5vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.25rem;
 }
 
