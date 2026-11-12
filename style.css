@@ -480,7 +480,7 @@ html.is-intro { overflow: hidden; }
 
 .timeline__year {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 13vw, min(12rem, 22vh));
+  font-size: clamp(3rem, 9rem, min(12rem, 10vh));
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--text);
