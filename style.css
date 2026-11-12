@@ -598,7 +598,7 @@ html.is-intro { overflow: hidden; }
 
 
 .scd-01__card-left {
-  width: 50%;
+  width: 65%;
   flex-shrink: 0;
   padding: clamp(2.5rem, 5vw, 3.5rem);
   display: flex;
@@ -608,7 +608,7 @@ html.is-intro { overflow: hidden; }
 }
 
 .scd-01__card-right {
-  width: 50%;
+  width: 35%;
   flex-shrink: 0;
   overflow: hidden;
 
